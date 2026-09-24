@@ -1,0 +1,111 @@
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: #0f1115;
+  color: #e6e8eb;
+}
+
+.app { max-width: 1400px; margin: 0 auto; padding: 24px; }
+
+.app-header {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-bottom: 20px;
+}
+.app-header h1 { font-size: 22px; margin: 0; }
+.header-actions { display: flex; gap: 10px; }
+
+button {
+  cursor: pointer; border: none; border-radius: 8px; padding: 8px 14px;
+  font-size: 14px; font-weight: 500;
+}
+button.primary { background: #4f7cff; color: white; }
+button.ghost { background: transparent; color: #cfd3da; border: 1px solid #383c46; }
+button.ghost.active { background: #4f7cff22; border-color: #4f7cff; color: #a9c0ff; }
+button.ghost.small { padding: 4px 10px; font-size: 12px; }
+button.danger { background: #3a1f22; color: #ff8a8a; }
+button:disabled { opacity: 0.6; cursor: default; }
+
+.banner {
+  background: #1a1d24; border: 1px solid #2a2e38; padding: 10px 14px;
+  border-radius: 8px; margin-bottom: 16px; font-size: 14px;
+}
+.banner.error { background: #2a1618; border-color: #5c2a2e; color: #ff9a9a; }
+
+.board {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;
+}
+.column {
+  background: #161920; border-radius: 12px; padding: 10px;
+  display: flex; flex-direction: column; min-height: 60vh;
+}
+.column-header {
+  display: flex; justify-content: space-between; padding: 6px 8px 12px;
+  font-weight: 600; font-size: 13px; text-transform: uppercase; letter-spacing: 0.04em;
+  color: #9aa0ab;
+}
+.count { background: #23262f; border-radius: 999px; padding: 1px 8px; font-size: 12px; }
+
+.column-body { flex: 1; display: flex; flex-direction: column; gap: 10px; min-height: 40px; }
+.column-body.drag-over { background: #1c2029; border-radius: 8px; }
+
+.task-card {
+  background: #1e2229; border: 1px solid #2a2e38; border-radius: 10px;
+  padding: 12px; cursor: pointer; transition: border-color 0.15s;
+}
+.task-card:hover { border-color: #4f7cff88; }
+.task-card.dragging { box-shadow: 0 8px 20px rgba(0,0,0,0.4); }
+.task-card.critical { border-color: #ff9f43; box-shadow: 0 0 0 1px #ff9f43; }
+
+.task-title { font-weight: 600; font-size: 14px; margin-bottom: 6px; }
+.task-dates { font-size: 12px; color: #9aa0ab; margin-top: 6px; }
+.task-prereqs { font-size: 11px; color: #7d84f0; margin-top: 4px; }
+
+.badge {
+  font-size: 11px; padding: 2px 8px; border-radius: 999px; font-weight: 600;
+}
+.badge.blocked { background: #3a1f22; color: #ff8a8a; }
+.badge.ready { background: #163a24; color: #7fe3a1; }
+
+.modal-backdrop {
+  position: fixed; inset: 0; background: rgba(0,0,0,0.55);
+  display: flex; align-items: center; justify-content: center; z-index: 50;
+}
+.modal {
+  background: #1a1d24; border-radius: 14px; padding: 24px; width: 480px;
+  max-height: 88vh; overflow-y: auto;
+}
+.modal h2 { margin-top: 0; }
+.modal label { display: block; font-size: 12px; color: #9aa0ab; margin: 12px 0 4px; }
+.modal input, .modal textarea {
+  width: 100%; background: #101318; border: 1px solid #2a2e38; border-radius: 8px;
+  padding: 8px 10px; color: #e6e8eb; font-size: 14px;
+}
+.modal .row { display: flex; gap: 12px; }
+.modal .row > div { flex: 1; }
+
+.prereq-section { margin-top: 8px; }
+.prereq-header { display: flex; justify-content: space-between; align-items: center; }
+.prereq-list { max-height: 140px; overflow-y: auto; margin-top: 6px; }
+.prereq-item { display: flex; align-items: center; gap: 8px; font-size: 13px; padding: 4px 0; }
+.prereq-item input { width: auto; }
+
+.suggestions { display: flex; flex-direction: column; gap: 8px; margin: 8px 0; }
+.suggestion {
+  background: #14202a; border: 1px solid #234; border-radius: 8px; padding: 8px 10px;
+  display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; font-size: 13px;
+}
+.suggestion .confidence { color: #7fb8ff; font-size: 11px; }
+.suggestion .reasoning { color: #9aa0ab; font-size: 12px; margin-top: 2px; }
+.suggestion-actions { display: flex; gap: 6px; flex-shrink: 0; }
+.suggestion-actions button { padding: 4px 8px; font-size: 12px; }
+
+.hint { font-size: 12px; color: #9aa0ab; margin: 4px 0; }
+
+.modal-actions { display: flex; align-items: center; gap: 8px; margin-top: 20px; }
+.modal-actions .spacer { flex: 1; }
+
+@media (max-width: 900px) {
+  .board { grid-template-columns: 1fr; }
+  .modal { width: 92vw; }
+}

@@ -1,0 +1,22 @@
+{
+  "name": "taskflow-backend",
+  "version": "1.0.0",
+  "private": true,
+  "type": "commonjs",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "seed": "node seed.js",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "express-rate-limit": "^7.4.0",
+    "helmet": "^7.1.0",
+    "sequelize": "^6.37.3",
+    "sqlite3": "^5.1.7",
+    "uuid": "^9.0.1"
+  }
+}

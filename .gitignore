@@ -1,0 +1,5 @@
+node_modules/
+backend/.env
+backend/taskflow.sqlite
+frontend/dist/
+.DS_Store
