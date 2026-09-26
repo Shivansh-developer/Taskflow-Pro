@@ -1,7 +1,7 @@
 # TaskFlow Pro
 
 A Kanban board (Backlog → In Progress → Review → Done) backed by a DAG
-(Directed Acyclic Graph) dependency engine. The board is the UI; the graph
+(Directed Acyclic Graph) dependency engine. The board is the UI; the graph 
 is the source of truth for whether a task is **Blocked** or **Ready**, and
 for how schedule changes ripple downstream.
 
