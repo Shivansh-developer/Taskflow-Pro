@@ -6,7 +6,7 @@ const rateLimit = require("express-rate-limit");
 const { init } = require("./models");
 const taskRoutes = require("./routes/tasks");
 const aiRoutes = require("./routes/ai");
-const { errorHandler, notFound } = require("./middleware/errorHandler");
+const { errorHandler, notFound } = require("./middleware/errorHandler"); 
 
 const app = express();
 
